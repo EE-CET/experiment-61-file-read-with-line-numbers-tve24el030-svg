@@ -12,6 +12,22 @@ public class FileLineReader {
         // TODO: Print each line in the format "lineNumber: lineContent"
         // TODO: Catch and handle any IOExceptions that might occur
         
-        
+        try(BufferedReader br = new BufferedReader(new FileReader(fileName))){
+
+		String line;
+		int lineNum=1;
+
+		while((line= br.readLine())!=null){
+
+			System.out.println(lineNum+": "+line);
+			lineNum++;
+
+		}
+
+	}catch(IOException e){
+
+		System.out.println("File read error : "+e.getMessage());
+
+	}
     }
 }
